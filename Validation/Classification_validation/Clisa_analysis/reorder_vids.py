@@ -16,7 +16,7 @@ def video_order_load(dataset,n_vids):
         # print(file)
         remark_file = os.path.join(datapath,file,'After_remarks.mat')
         subject_remark = hdf5storage.loadmat(remark_file)['After_remark']
-        vid_orders[idx, :] = [subject_remark[vid][0][2] for vid in range(0,n_vids)]
+        vid_orders[idx, :] = [subject_remark[vid][0][2][0][0] for vid in range(0,n_vids)]
         # original_vid = [subject_remark[vid][0][2] for vid in range(0,28)]
         # vid_index = [a in videos_num for a in original_vid]
         # vid_orders[idx, :] = np.array(original_vid)[vid_index].reshape(-1)
