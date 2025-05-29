@@ -78,7 +78,7 @@ parser.add_argument('--val-method', default='10_folds', type=str,
                     help='10_folds or loo' )
 parser.add_argument('--cls', default=9, type=int,
                     help='how many cls to use')
-parser.add_argument('--train-or-test',default='train',type=str,help='Using for strategy')
+parser.add_argument('--train-or-test',default='test',type=str,help='Using for strategy')
 
 
 args = parser.parse_args()
@@ -250,15 +250,12 @@ if finetune:
                     val_sampler = TrainSampler_sub(len(val_sub), n_samples=n_samples,
                                                    batch_size=args.batch_size_finetune, n_subs=9)
 
-                    train_loader = DataLoader(dataset=trainset, batch_sampler=train_sampler, pin_memory=True,
-                                              num_workers=8)
-                    val_loader = DataLoader(dataset=valset, batch_sampler=val_sampler, pin_memory=True, num_workers=8)
+                    train_loader = DataLoader(dataset=trainset, batch_sampler=train_sampler, pin_memory=True)
+                    val_loader = DataLoader(dataset=valset, batch_sampler=val_sampler, pin_memory=True)
 
                 else:
-                    train_loader = DataLoader(dataset=trainset, batch_size=args.batch_size_finetune, shuffle=True,
-                                              num_workers=8)
-                    val_loader = DataLoader(dataset=valset, batch_size=args.batch_size_finetune, shuffle=False,
-                                            num_workers=8)
+                    train_loader = DataLoader(dataset=trainset, batch_size=args.batch_size_finetune, shuffle=True)
+                    val_loader = DataLoader(dataset=valset, batch_size=args.batch_size_finetune, shuffle=False)
 
                 inp_dim = data_train.shape[-1]
                 print('input dim:', inp_dim)

@@ -18,7 +18,7 @@ def train_earlyStopping(args, train_loader, val_loader, model, criterion, optimi
 
         logits = model(x_batch)
         # print(logits.shape, y_batch.shape)
-        loss = criterion(logits, y_batch)
+        loss = criterion(logits, y_batch.long())
 
         top1 = accuracy(logits, y_batch, topk=(1,))
         val_acc += top1[0]
@@ -44,7 +44,7 @@ def train_earlyStopping(args, train_loader, val_loader, model, criterion, optimi
 
             logits = model(x_batch)
             # print(logits.shape, y_batch.shape)
-            loss = criterion(logits, y_batch)
+            loss = criterion(logits, y_batch.long())
 
             top1 = accuracy(logits, y_batch, topk=(1,))
             train_acc += top1[0]
@@ -71,7 +71,7 @@ def train_earlyStopping(args, train_loader, val_loader, model, criterion, optimi
             y_batch = y_batch.to(args.device)
 
             logits = model(x_batch)
-            loss = criterion(logits, y_batch)
+            loss = criterion(logits, y_batch.long())
 
             top1 = accuracy(logits, y_batch, topk=(1,))
             confusionMat = confusionMat + get_confusionMat(logits, y_batch, 9)
@@ -146,7 +146,7 @@ def train(args, best_epoch, train_loader, val_loader, model, criterion, optimize
             y_batch = y_batch.to(args.device)
 
             logits = model(x_batch)
-            loss = criterion(logits, y_batch)
+            loss = criterion(logits, y_batch.long())
 
             top1 = accuracy(logits, y_batch, topk=(1,))
             train_acc += top1[0]
@@ -171,7 +171,7 @@ def train(args, best_epoch, train_loader, val_loader, model, criterion, optimize
             y_batch = y_batch.to(args.device)
 
             logits = model(x_batch)
-            loss = criterion(logits, y_batch)
+            loss = criterion(logits, y_batch.long())
 
             top1 = accuracy(logits, y_batch, topk=(1,))
             val_acc += top1[0]
@@ -199,7 +199,7 @@ def test(args, test_loader, model, criterion):
         y_batch = y_batch.to(args.device)
 
         logits = model(x_batch)
-        loss = criterion(logits, y_batch)
+        loss = criterion(logits, y_batch.long())
 
         top1 = accuracy(logits, y_batch, topk=(1,))
         test_acc += top1[0]
