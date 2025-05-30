@@ -153,7 +153,7 @@ print('n_folds ',n_folds)
 
 # Here I only select 10 fold for k-fold
 if args.training_fold == 'all':
-    folds_list = np.arange(9, n_folds)
+    folds_list = np.arange(0, n_folds)
 else:
     # training_fold = 0~9
     folds_list = [int(args.training_fold)]
