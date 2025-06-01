@@ -153,7 +153,7 @@ print('n_folds ',n_folds)
 
 # Here I only select 10 fold for k-fold
 if args.training_fold == 'all':
-    folds_list = np.arange(3, n_folds)
+    folds_list = np.arange(6, n_folds)
 else:
     # training_fold = 0~9
     folds_list = [int(args.training_fold)]
@@ -176,6 +176,7 @@ root_dir = '.'
 save_dir = os.path.join(root_dir, 'runs_srt', args.log_dir)
 if not os.path.exists(save_dir):
     os.makedirs(save_dir)
+    print("Path Not Exists")
 
 print(args)
 
