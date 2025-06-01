@@ -166,7 +166,7 @@ if label_type == 'cls2':
         args.batch_size_pretrain, args.dataset, timeLen, n_timeFilters, n_spatialFilters,
         multiFact, args.learning_rate, args.weight_decay, args.epochs_pretrain, args.randSeed, n_folds, label_type)
 else:
-    args.log_dir = 'raw_28video_batch%d_dataset_%s_timeLen%d_tf%d_sf%d_multiFact%d_lr%f_wd%f_epochs%d_randSeed%d_fold%d_accSel_newPre_%s' % (
+    args.log_dir = 'raw_28video_batch%d_dataset_%s_timelen%d_tf%d_sf%d_multiFact%d_lr%f_wd%f_epochs%d_randseed%d_fold%d_accSel_newPre_%s' % (
         args.batch_size_pretrain, args.dataset, timeLen, n_timeFilters, n_spatialFilters,
         multiFact, args.learning_rate, args.weight_decay, args.epochs_pretrain, args.randSeed, n_folds, label_type)
 
