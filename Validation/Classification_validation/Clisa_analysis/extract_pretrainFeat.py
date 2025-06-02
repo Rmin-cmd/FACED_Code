@@ -182,21 +182,23 @@ for fold in range(n_folds):
 
     if not randomInit:
         if args.dataset in ['first', 'second']:
-            # with open(os.path.join(save_dir, 'folds_' + str(fold) + '_dataset_' + args.dataset + '_results_pretrain.pkl'), 'rb') as f:
-            #     results_pretrain = pickle.load(f)
-            # best_pretrain_epoch = int(results_pretrain['best_epoch'][fold])
-            best_pretrain_epochs = [19, 25, 37, 41, 42, 22, 12, 10, 15, 22]
-            checkpoint_name = 'checkpoint_{:04d}.pth.tar'.format(best_pretrain_epochs[fold])
+            with open(os.path.join(save_dir, 'folds_' + str(fold) + '_dataset_' + args.dataset + '_results_pretrain.pkl'), 'rb') as f:
+                results_pretrain = pickle.load(f)
+            best_pretrain_epoch = int(results_pretrain['best_epoch'][fold])
+            # best_pretrain_epochs = [19, 25, 37, 41, 42, 22, 12, 10, 15, 22]
+            checkpoint_name = 'checkpoint_{:04d}.pth.tar'.format(best_pretrain_epoch)
+            # checkpoint_name = 'checkpoint_{:04d}.pth.tar'.format(best_pretrain_epochs[fold])
             print('load:', checkpoint_name)
             # print(save_dir)
             checkpoint = torch.load(os.path.join(save_dir, str(fold), checkpoint_name), map_location=args.device)
 
         elif args.dataset in ['both']:
-            # with open(os.path.join(save_dir, 'folds_' + str(fold) + '_dataset_both_results_pretrain.pkl' ), 'rb') as f:
-            #     results_pretrain = pickle.load(f)
-            # best_pretrain_epoch = int(results_pretrain['best_epoch'][fold])
-            best_pretrain_epochs = [19, 25, 37, 41, 42, 22, 12, 10, 15, 22]
-            checkpoint_name = 'checkpoint_{:04d}.pth.tar'.format(best_pretrain_epochs[fold])
+            with open(os.path.join(save_dir, 'folds_' + str(fold) + '_dataset_both_results_pretrain.pkl' ), 'rb') as f:
+                results_pretrain = pickle.load(f)
+            best_pretrain_epoch = int(results_pretrain['best_epoch'][fold])
+            # best_pretrain_epochs = [19, 25, 37, 41, 42, 22, 12, 10, 15, 22]
+            checkpoint_name = 'checkpoint_{:04d}.pth.tar'.format(best_pretrain_epoch)
+            # checkpoint_name = 'checkpoint_{:04d}.pth.tar'.format(best_pretrain_epochs[fold])
             print('load:', checkpoint_name)
             checkpoint = torch.load(os.path.join(save_dir,  str(fold), checkpoint_name), map_location=args.device)
         state_dict = checkpoint['state_dict']
