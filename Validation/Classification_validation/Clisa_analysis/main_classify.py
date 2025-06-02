@@ -78,7 +78,7 @@ parser.add_argument('--val-method', default='10_folds', type=str,
                     help='10_folds or loo' )
 parser.add_argument('--cls', default=9, type=int,
                     help='how many cls to use')
-parser.add_argument('--train-or-test',default='test',type=str,help='Using for strategy')
+parser.add_argument('--train-or-test',default='train',type=str,help='Using for strategy')
 
 
 args = parser.parse_args()
