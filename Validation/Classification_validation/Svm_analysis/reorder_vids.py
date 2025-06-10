@@ -15,7 +15,8 @@ def video_order_load(dataset,n_vids):
         # print(file)
         remark_file = os.path.join(datapath,file,'After_remarks.mat')
         subject_remark = hdf5storage.loadmat(remark_file)['After_remark']
-        vid_orders[idx, :] = [subject_remark[vid][0][2] for vid in range(0,n_vids)]
+        # vid_orders[idx, :] = [subject_remark[vid][0][2] for vid in range(0,n_vids)]
+        vid_orders[idx, :] = [subject_remark[vid][0][2][0][0] for vid in range(0,n_vids)]
     print('vid_order shape: ', vid_orders.shape)
     return vid_orders
 

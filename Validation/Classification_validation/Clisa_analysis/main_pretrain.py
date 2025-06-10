@@ -92,7 +92,8 @@ randomInit = True
 fixFirstLayers = False
 tuneMode = args.tuneMode
 stratified = ['initial', 'middle1', 'middle2']
-channel_norm = False
+# channel_norm = False
+channel_norm = True
 time_norm = False
 
 

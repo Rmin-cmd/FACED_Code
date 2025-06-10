@@ -60,7 +60,8 @@ for decay_rate in [0.990]:
             data_name = 'de_features.mat'
             data = sio.loadmat(os.path.join(root_dir, data_name))['de']
             print(data.shape)
-            data = data.transpose([0,2,3,1]).reshape(n_subs, 840, 30*4)
+            # data = data.transpose([0,2,3,1]).reshape(n_subs, 840, 30*4)
+            data = data.transpose([0,2,3,1]).reshape(n_subs, 840, 30*5)
             if n_vids == 24:
                 data = np.concatenate((data[:, :12*30, :], data[:, 16*30:, :]), 1)
         elif use_features == 'CoCA':

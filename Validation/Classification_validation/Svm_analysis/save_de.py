@@ -7,7 +7,8 @@ import os
 
 
 # Load the data
-data_path = '../../../../Processed_data'
+# data_path = '../../../../Processed_data'
+data_path = 'D:\proposal and thesis\Emotion recognition dataset\FACED dataset\Processed_data\Processed_data'
 data_paths = os.listdir(data_path)
 data_paths.sort()
 n_vids = 28;
